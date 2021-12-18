@@ -7,5 +7,7 @@ class delete{
         $stmt = $con->getcon()->prepare($sql);
         $stmt->bindValue(1, $id);
         $stmt->execute();
+
+        
     }
 }
