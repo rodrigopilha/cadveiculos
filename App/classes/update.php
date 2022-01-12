@@ -12,21 +12,36 @@ class update
         $res = $stmt->fetch(PDO::FETCH_ASSOC);
         return $res;
     }
-
-
-
-    public function atualizar($id, $chassi, $marca, $modelo, $ano, $placa)
+    public function upd($id)
     {
+        if (!isset($_POST['chassi']) && !isset($_POST['caract'])) {
+            return;
+        }
+        $chassi = addslashes($_POST['chassi']);
+        $marca = addslashes($_POST['marca']);
+        $modelo = addslashes($_POST['modelo']);
+        $ano = addslashes($_POST['ano']);
+        $placa = addslashes($_POST['placa']);
+        $itens = implode(', ', $_POST['caract']);
+
+        if (
+            empty($chassi) || empty($marca)  || empty($modelo) ||
+            empty($ano) || empty($placa) || empty($itens)
+        ) {
+            return;
+        }
 
         $con = new conexao();
-        $sql = 'UPDATE veiculos SET chassi = ?,marca = ?,modelo = ?,ano = ?,placa = ? WHERE id = ? ';
+        $sql = 'UPDATE veiculos SET chassi = :chassi,marca = :marca,modelo = :modelo,
+                       ano = :ano,placa = :placa,itens = :itens WHERE id = :id';
         $stmt = $con->getcon()->prepare($sql);
-        $stmt->bindValue(1, $chassi);
-        $stmt->bindValue(2, $marca);
-        $stmt->bindValue(3, $modelo);
-        $stmt->bindValue(4, $ano);
-        $stmt->bindValue(5, $placa);
-        $stmt->bindValue(6, $id);
+        $stmt->bindValue(':chassi', $chassi);
+        $stmt->bindValue(':marca', $marca);
+        $stmt->bindValue(':modelo', $modelo);
+        $stmt->bindValue(':ano', $ano);
+        $stmt->bindValue(':placa', $placa);
+        $stmt->bindValue(':itens', $itens);
+        $stmt->bindValue(':id', $id);
         $stmt->execute();
     }
 }

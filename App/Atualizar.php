@@ -1,10 +1,6 @@
 <?php
 require_once '../App/classes/update.php';
 require_once '../App/classes/conexao.php';
-require_once '../App/classes/dados.php';
-
-$data = new dados();
-$data->getdados();
 
 $up = new update();
 
@@ -13,7 +9,7 @@ if (isset($_GET['edt'])) {
   $dado = $up->editar($edit);
 }
 if (isset($_POST['atualizar'])) {
-  $up->atualizar($edit, $chassi, $marca, $modelo, $ano, $placa);
+  $up->upd($edit);
   header("Location:listar.php");
 }
 ?>
@@ -96,7 +92,7 @@ if (isset($_POST['atualizar'])) {
       <h4>Escolha duas caracteristicas</h4>
 
       <div class="form-check">
-        <input class=" form-check-input" name="caract[]" type="checkbox" value="esporte" id="Check1">
+        <input class=" form-check-input" name="caract[]" type="checkbox" value="esporte " id="Check1">
         <label class="form-check-label" for="Check">
           Esporte
         </label>
