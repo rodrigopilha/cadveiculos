@@ -5,13 +5,11 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <style>
     body {
       background-color: azure;
-
     }
 
     .btn {
@@ -36,37 +34,32 @@
   <h1>Cadastrar Veiculo</h1>
   <form method="POST" class="row g-3 m-5 ">
     <div class="col-md-4 position-relative">
-
       <input type="text" class="form-control" placeholder="Chassi" maxlength="17" name="chassi" value="<?php if (isset($dado)) {
                                                                                                           echo $dado['chassi'];
                                                                                                         } ?>">
 
     </div>
-    <div class="col-md-4 position-relative">
 
+    <div class="col-md-4 position-relative">
       <input type="text" class="form-control" placeholder=" Marca" name="marca" value="<?php if (isset($dado)) {
                                                                                           echo $dado['marca'];
                                                                                         } ?>">
-
     </div>
-    <div class="col-md-6 position-relative">
 
+    <div class="col-md-6 position-relative">
       <input type="text" class="form-control" placeholder="Modelo" name="modelo" value="<?php if (isset($dado)) {
                                                                                           echo $dado['modelo'];
                                                                                         } ?>">
-
     </div>
+
     </div>
     <div class="col-md-4 position-relative">
-
       <input type="text" class="form-control" placeholder="Ano" name="ano" value="<?php if (isset($dado)) {
                                                                                     echo $dado['ano'];
                                                                                   } ?>">
-
     </div>
 
     <div class="col-md-3 position-relative">
-
       <input type="text" class="form-control" placeholder="Placa" maxlength="7" name="placa" value="<?php if (isset($dado)) {
                                                                                                       echo $dado['placa'];
                                                                                                     } ?>">
@@ -159,9 +152,6 @@
       }
     }());
   </script>
-
-  <!-- Optional JavaScript; choose one of the two! -->
-
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -176,7 +166,6 @@
 <?php
 require_once '../App/classes/conexao.php';
 require_once '../App/classes/dados.php';
-//require_once '../App/classes/insert.php';
 
 $data = new dados();
 $data->getdados();

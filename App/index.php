@@ -35,7 +35,7 @@
             <a class="nav-link" href="listar.php">Listar Veiculos</a>
           </li>
         </ul>
-        <form class="d-flex" action="resbusca.php" method="GET">
+        <form class="d-flex" action="busca.php" method="GET">
           <input class="form-control me-2" type="search" maxlength="17" name="busca" placeholder="Chassi..." aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>

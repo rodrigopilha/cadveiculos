@@ -82,7 +82,6 @@ $del = new delete();
 if (isset($_GET['id'])) {
   $id_veiculo = addslashes($_GET['id']);
   $del->deletedado($id_veiculo);
-  // header("Location:listar.php");
 }
 
 ?>
